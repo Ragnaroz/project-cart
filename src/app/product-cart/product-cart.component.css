@@ -1,0 +1,24 @@
+.width30 {
+    width: 30%;
+}
+
+.width10 {
+    width: 10%;
+}
+
+.quantity {
+    width: 50px;
+}
+
+.products-component {
+    height: 60vh;
+}
+
+.products-body {
+    overflow: auto;
+}
+
+.card .card-header {
+    background-color: #343a40;
+    color: white;
+}

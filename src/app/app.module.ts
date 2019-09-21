@@ -1,16 +1,24 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-
-import { AppComponent } from './app.component';
+import { NgModule, Injector } from '@angular/core';
+import { createCustomElement } from '@angular/elements';
+import { ProductCartComponent } from './product-cart/product-cart.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
+  declarations: [ProductCartComponent],
   imports: [
-    BrowserModule
+    BrowserModule,
+    FormsModule
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  entryComponents: [ProductCartComponent]
 })
-export class AppModule { }
+export class AppModule {
+
+  constructor(private injector: Injector) { }
+
+  ngDoBootstrap() {
+    const myCustomElement = createCustomElement(ProductCartComponent, { injector: this.injector });
+    customElements.define('product-cart', myCustomElement);
+  }
+
+}

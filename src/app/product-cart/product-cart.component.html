@@ -1,0 +1,31 @@
+<div class="products-component">
+    <div class="card products-component">
+        <h5 class="card-header">Products</h5>
+        <div class="card-body products-body">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">Product</th>
+                        <th scope="col">Vendor</th>
+                        <th scope="col">Price</th>
+                        <th scope="col">Stock</th>
+                        <th scope="col">Quantity</th>
+                        <th scope="col"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let product of products">
+                        <td class="width30">{{product.name}}</td>
+                        <td class="width30">{{product.vendor}}</td>
+                        <td class="width10">{{product.price}}$</td>
+                        <td class="width10">{{product.stock}}</td>
+                        <td class="width10">
+                            <input type="number" class="quantity" name="quantity" [(ngModel)]="product.quantity" min="0" max="{{product.stock}}">
+                        </td>
+                        <td class="width10"><button (click)="add(product)" class="btn btn-secondary">Add</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
